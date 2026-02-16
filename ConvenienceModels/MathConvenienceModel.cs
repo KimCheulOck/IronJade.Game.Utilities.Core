@@ -255,5 +255,14 @@ namespace IronJade.Util.Core
                 end--;
             }
         }
+
+        /// <summary>
+        /// 맨해튼 거리 (타일 칸 수 기준)
+        /// 4방향 이동에 적합
+        /// </summary>
+        public int Manhattan(Vector2Int a, Vector2Int b)
+        {
+            return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
+        }
     }
 }
