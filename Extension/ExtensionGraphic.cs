@@ -26,11 +26,9 @@ public static class ExtensionGraphic
         if (image.SafeIsNull())
             return;
 
-        image.sprite = Resources.Load<Sprite>(path);
         image.SetNativeSize();
     }
     #endregion
-
 
     #region Text
     public static void SafeSetText(this Text text, string value)
