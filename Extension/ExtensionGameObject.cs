@@ -40,12 +40,20 @@ public static class ExtensionGameObject
 
     public static void ChangeLayer(this MonoBehaviour mono, string name, bool isChild)
     {
-        if (mono == null)
+        if (mono.SafeIsNull())
             return;
 
-        mono.gameObject.layer = LayerMask.NameToLayer(name);
+        ChangeLayer(mono.gameObject, name, isChild);
+    }
 
-        Transform[] childs = mono.GetComponentsInChildren<Transform>(true);
+    public static void ChangeLayer(this GameObject gameObject, string name, bool isChild)
+    {
+        if (gameObject.SafeIsNull())
+            return;
+
+        gameObject.layer = LayerMask.NameToLayer(name);
+
+        Transform[] childs = gameObject.GetComponentsInChildren<Transform>(true);
         for (int i = 0; i < childs.Length; ++i)
         {
             if (childs[i] == null)
