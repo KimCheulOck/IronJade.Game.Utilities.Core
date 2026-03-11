@@ -38,6 +38,26 @@ public static class ExtensionGameObject
             components[i].SafeSetActive(active);
     }
 
+    public static void SafeSetActive(this GameObject gameObject, bool active)
+    {
+        if (gameObject.SafeIsNull())
+            return;
+
+        if (gameObject.gameObject.SafeIsNull())
+            return;
+
+        gameObject.gameObject.SetActive(active);
+    }
+
+    public static void SafeSetActive(this GameObject[] gameObjects, bool active)
+    {
+        if (gameObjects.SafeIsNull())
+            return;
+
+        for (int i = 0; i < gameObjects.Length; ++i)
+            gameObjects[i].SafeSetActive(active);
+    }
+
     public static void ChangeLayer(this MonoBehaviour mono, string name, bool isChild)
     {
         if (mono.SafeIsNull())

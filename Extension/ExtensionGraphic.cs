@@ -39,7 +39,7 @@ public static class ExtensionGraphic
         text.text = value;
     }
 
-    public static void SafeSetText(this TextMeshProUGUI text, string value)
+    public static void SafeSetText(this TMP_Text text, string value)
     {
         if (text.SafeIsNull())
             return;
